@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Jeremy's Blog</title>
+    <style>
+      #articleTitle{
+        color: rgb(110, 145, 117);
+        }
+        #header{
+        color: rgb(140, 146, 134);
+        
+        }
+        #datetext{
+          color: rgb(179, 182, 180);
+          
+        }
+        #colorText{
+          color: rgb(104, 126, 79);
+        
+        }
+
+    </style>
+  </head>
+  <body>
+    <table style="margin-left: 20%; margin-right: 20%;">
+      <thead >
+        <tr>
+          <th id="header">
+            <h3>Jeremy's blog</h3>
+          </th>
+          <th style="width: 60%;"></th>
+          <th id="header">HOME </th>
+          <th id="header">ABOUT</th>
+          <th id="header">ARCHIVE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="6">
+            <p style="border-color: rgb(140, 146, 134); border-style: solid;border-top: 5mm;">
+              <h1 id="articleTitle">Rules for autocomplete</h1>  
+            </p>
+            <i>
+                <h3 id="datetext"> Posted on march 19.2019</h3>
+            </i>
+            <p >
+              <h2 id="colorText" >Autocompleting text with known values seems like an esy problem to solve, 
+                but so so so many UIs get it wrong. I see this frequently enough that, rather than complain about 
+                them individually, I though I'd just write down the set of rules they often break.
+              </h2>
+             </p>   
+             <p>
+                 <h2 id="colorText" >There may be cases where some of these rules aren't the best thinkg to do,
+                   but thre should be a good reason for breaking on of these rules(for example, some of these rules don't
+                    apply if a field must be filled with a value from a fixed set, like the list of US states). Following these
+                   rules in at very least a sane experience:
+                  </h2>
+             </p>
+              <ul type="disc" >
+                <li>
+                  <h2 id="colorText"> Exact matches always come first. If the user types in a option exactly, other options must
+                    always go below the one matching what they typed. 
+                  </h2>  
+                </li>
+                <li>
+                  <h2 id="colorText"> Besides exact matches, prefix matches come first. If I type "Fr" I want "Fresno" not
+                     "San Francisco".
+                    </h2>
+                </li>
+                <li>
+                  <h2 id="colorText"> After prefix matches, it can fall back to substring matches.Starting with substring matches
+                    would almost always be the wrong thing to do since users start typing words at the beginning not somewhere 
+                    in the middle.
+                  </h2>
+                </li>
+                <li>
+                  <h2 id="colorText"> If there are no substring matches, it can optionally fall back to subsequnece matching. This is onl
+                    useful in some cases.
+                  </h2>
+                </li>
+                <li>  
+                  <h2 id="colorText"> If there are no subsequnece/substring matches, it can optionally fall back to approximate matches. This 
+                    is rarely necessary to provide. 
+                  </h2>
+                </li>
+                <li>
+                  <h2 id="colorText"> Matches should be sorted alphabetically.
+                  </h2>
+                </li>
+                <li>
+                  <h2 id="colorText"> When one option is the prefix of the another, put the <i>shortest one first. </i> 
+
+                  </h2>
+                </li>
+                <li>
+                  <h2 id="colorText">This matching should probably be case insensitive unless there are two options that
+                    differ only be case. In that case (pun intended), prefer the one that more closely matches the user's 
+                    input
+                  </h2>
+                </li>
+                <li>
+                  <h2 id="colorText">The action to make use of the selection(e.g. to search the term) must be a different
+                    key that action to accept the first suggestion <i>unless</i> you have to do something first to start 
+                    using autocomplete (e.g. hit the down arrow). The user should never have to take extra steps to 
+                    <i>not</i> use autocomplete.
+
+                  </h2>
+                </li>
+              </ul>
+            </td>
+        </tr>
+      </tbody>
+      </table>
+  </body>
+</html>
